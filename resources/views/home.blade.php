@@ -1,39 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="lg:flex">
-        <div class="lg:w-1/6">
+    <div class="lg:flex lg:justify-between">
+        <div class="lg:w-32">
             @include ('_sidebar-links')
         </div>
 
-        <div class="lg:flex-1 lg:mx-10">
-            <div>
+        <div class="lg:flex-1 lg:mx-10" style="max-width: 700px">
 
-            </div>
-            <div class="border border-blue-400 rounded-lg py-6 px-8">
-                <form action="">
-                    <textarea
-                        name="body"
-                        class="w-full"
-                        placeholder="What's up?"
-                    >
-                    </textarea>
-                </form>
+            @include ('_publish-tweet-panel')
 
-                <hr class="my-4">
-
-                <footer class="flex justify-between">
-                    <img src="https://i.pravatar.cc/40"
-                         alt="avatar"
-                         class="rounded-full mr-2"
-                    >
-                    <button type="submit" class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white">Tweet-a-roo!</button>
-                </footer>
-
+            <div class="border border-gray-300 rounded-lg">
+                @include(('_tweet'))
+                @include(('_tweet'))
+                @include(('_tweet'))
+                @include(('_tweet'))
             </div>
         </div>
 
-        <div class="lg:w-1/6">
+        <div class="lg:w-1/6 bg-blue-100 rounded-lg p-4">
             @include ('_friends-list')
         </div>
     </div>
