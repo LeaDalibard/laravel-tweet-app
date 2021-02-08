@@ -22,9 +22,13 @@
 <body>
 <div id="app">
 
-    <section class="px-8">
+    <section class="px-8 py-4">
         <header class="container mx-auto">
-            <h1>Tweety</h1>
+            <img
+                src="images/logo_twitter.png"
+                alt="logo"
+                width="200px"
+            >
         </header>
     </section>
 
