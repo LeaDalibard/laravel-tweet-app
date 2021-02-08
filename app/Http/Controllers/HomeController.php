@@ -15,8 +15,10 @@ class HomeController extends Controller
 
     public function index()
     {
+       // $tweets= Tweet::latest()->get();
+
         return view('home', [
-            'tweets'=>Tweet::all()
+            'tweets'=>auth()->user()->timeline()
         ]);
     }
 }
