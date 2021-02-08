@@ -6,11 +6,9 @@
         >
     </div>
     <div>
-        <h5 class="font-bold mb-4">Patti Smith</h5>
+        <h5 class="font-bold mb-4">{{$tweet->user->name}}</h5>
         <p class="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab eaque maxime reiciendis? Ad
-            deleniti dolores id rerum velit. Ab animi commodi corporis et magnam maxime quisquam
-            reprehenderit, ullam. Eligendi, quod.
+            {{$tweet->body}}
         </p>
     </div>
 </div>

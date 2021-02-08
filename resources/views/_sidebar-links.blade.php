@@ -38,5 +38,5 @@
         <a href="" class="font-bold text-lg mb-4 block">
             More
         </a>
-    </li>g
+    </li>
 </ul>
