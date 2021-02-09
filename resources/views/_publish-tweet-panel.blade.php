@@ -8,7 +8,6 @@
             placeholder="What's up?"
         ></textarea>
 
-
         <hr class="my-4">
 
         <footer class="flex justify-between">
@@ -23,4 +22,10 @@
             </button>
         </footer>
     </form>
+
+    @error('body')
+    <p class="text-red-500 text-sm mt-2">
+        {{$message}}
+    </p>
+    @enderror
 </div>
