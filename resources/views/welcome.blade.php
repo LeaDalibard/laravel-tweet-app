@@ -17,7 +17,8 @@
     <h1>Tweety</h1>
     <div >
         @auth
-            <a href="{{ url('/home') }}">Home</a>
+            <a href="{{ url('/tweets') }}">Home</a>
+            <a href="{{ route('logout') }}" >Logout</a>
         @else
             <a href="{{ route('login') }}" >Login</a>
 

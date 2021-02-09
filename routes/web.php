@@ -17,9 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tweets', 'App\Http\Controllers\TweetsController@index' );
-Route::post('/tweets', 'App\Http\Controllers\TweetsController@store' );
+Route::middleware('auth')->group(function(){
+    Route::get('/tweets', 'App\Http\Controllers\TweetsController@index' )->name('home');
+    Route::post('/tweets', 'App\Http\Controllers\TweetsController@store' );
+});
+// ensure that user is auth and if not redirect to login page
 
 Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
