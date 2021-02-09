@@ -8,6 +8,8 @@
                 <img src="{{$user->avatar}}"
                      alt="avatar"
                      class="rounded-full mr-2"
+                     width="40"
+                     height="40"
                 >
                 {{$user->name}}
             </a>
