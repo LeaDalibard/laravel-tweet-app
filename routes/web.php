@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function(){
 });
 // ensure that user is auth and if not redirect to login page
 
+Route::get('/profiles/{user}', 'App\Http\Controllers\ProfilesController@show')->name('profile');
+
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
