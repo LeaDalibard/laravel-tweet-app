@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/profiles/{user:username}/follow', 'App\Http\Controllers\FollowsController@store');
     Route::get('/profiles/{user:username}/edit', 'App\Http\Controllers\ProfilesController@edit')->middleware('can:edit,user');
+
+    Route::patch('/profiles/{user:username}', 'App\Http\Controllers\ProfilesController@update');
 });
 // ensure that user is auth and if not redirect to login page
 

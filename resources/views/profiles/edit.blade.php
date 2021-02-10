@@ -53,7 +53,7 @@
                 name="email"
                 value="{{$user->email}}"
                 id="email"
-
+                required
             >
 
         </div>
@@ -81,6 +81,7 @@
                     class="border border-gray-400 p-2 w-full"
                     name="password_confirmation"
                     id="password_confirmation"
+                    required
                 >
                 @error('password_confirmation')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
