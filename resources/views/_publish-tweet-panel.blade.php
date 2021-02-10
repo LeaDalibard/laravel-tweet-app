@@ -8,8 +8,8 @@
             placeholder="What's up?"
         ></textarea>
 
-        <hr class="my-4">
 
+        <hr class="my-4">
         <footer class="flex justify-between">
             <img src="{{auth()->user()->avatar}}"
                  alt="avatar"

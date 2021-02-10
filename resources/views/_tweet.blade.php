@@ -1,6 +1,6 @@
-<div class="rounded-3xl p-4 flex border-b border-b-gray-400">
+<div class=" p-4 flex {{$loop->last  ? '': 'border-b border-b-gray-400'}} ">
     <div class="mr-2 flex-shrink-0">
-        <a href="{{route('profile',$tweet->user)}}">
+        <a href="{{$tweet->user->path()}}">
             <img src="{{$tweet->user->avatar}}"
                  alt="avatar"
                  class="rounded-full mr-2"
@@ -11,7 +11,7 @@
 
     </div>
     <div >
-        <a href="{{route('profile',$tweet->user)}}">
+        <a href="{{$tweet->user->path()}}">
             <h5 class="font-bold mb-4">{{$tweet->user->name}}</h5>
         </a>
 

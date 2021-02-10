@@ -1,13 +1,23 @@
 <x-app>
 
     <header class="mb-6 relative">
-        <img src="{{url('/images/profile_banner.jpeg')}}"
-             alt=""
-             height="220px"
-             class="rounded-3xl mb-2"
 
-        >
-        <div class="flex justify-between items-center  mb-4">
+        <div class="relative">
+            <img src="{{url('/images/profile_banner.jpeg')}}"
+                 alt=""
+                 height="220px"
+                 class="rounded-3xl mb-2"
+            >
+
+            <img src="{{$user->avatar}}"
+                 alt="avatar"
+                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2 "
+                 style="left:50%;"
+                 width="150px"
+            >
+        </div>
+
+        <div class="flex justify-between items-center  mb-6">
 
             <div>
                 <h2 class="font-bold text-2xl mb-0">{{$user->name}}</h2>
@@ -18,17 +28,8 @@
                     Edit Profile
                 </a>
 
-                <form method="POST" action="/profiles/{{$user->name}}/follow">
-                    @csrf
-
-                    <button
-                        type ="submit"
-                        class="bg-blue-500 rounded-full shadow py-2 px-4 text-white text-xs"
-                    >
-                      {{auth()->user()->following($user)? 'Unfollow Me' : 'Follow-me'}}
-                    </button>
-                </form>
-
+               <x-follow-button :user="$user"></x-follow-button>
+                <!-- Need to pass user info to follow-button component, les ":" spécifient qu'on passe un objet pas string-->
 
             </div>
         </div>
@@ -39,17 +40,13 @@
             iste quos?
         </p>
 
-        <img src="{{$user->avatar}}"
-             alt="avatar"
-             class="rounded-full mr-2 absolute "
-             style="width:160px; left:calc(50% - 75px); top:39%"
-        >
+
 
 
     </header>
 
 
-    <hr>
+
 
     @include('_timeline',[
     'tweets'=>$user->tweets
