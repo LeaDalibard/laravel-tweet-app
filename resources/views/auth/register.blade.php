@@ -4,8 +4,8 @@
             <div class="col-md-8">
 
 
-                <div class="row col-md-12">
-                    <h3 class="col-md-4 text-md-right font-weight-bold text-lg mb-4">{{ __('Register') }}</h3>
+                <div class="">
+                    <h3 class="text-md-center font-weight-bold text-lg mb-4">{{ __('Register') }}</h3>
                 </div>
 
 
