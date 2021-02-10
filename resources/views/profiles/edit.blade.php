@@ -14,6 +14,7 @@
                 class="border border-gray-400 p-2 w-full"
                 name="name"
                 id="name"
+                value="{{$user->name}}"
                 required
             >
             @error('name')
@@ -32,6 +33,7 @@
                 class="border border-gray-400 p-2 w-full"
                 name="username"
                 id="username"
+                value="{{$user->username}}"
                 required
             >
             @error('username')
@@ -49,6 +51,7 @@
                 type="email"
                 class="border border-gray-400 p-2 w-full"
                 name="email"
+                value="{{$user->email}}"
                 id="email"
 
             >
