@@ -20,10 +20,13 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function(){
     Route::get('/tweets', 'App\Http\Controllers\TweetsController@index' )->name('home');
     Route::post('/tweets', 'App\Http\Controllers\TweetsController@store' );
+
+    Route::post('/profiles/{user:name}/follow', 'App\Http\Controllers\FollowsController@store');
 });
 // ensure that user is auth and if not redirect to login page
 
-Route::get('/profiles/{user}', 'App\Http\Controllers\ProfilesController@show')->name('profile');
+Route::get('/profiles/{user:name}', 'App\Http\Controllers\ProfilesController@show')->name('profile');
+//{user:name}, here we specify the name of the attribute, we want to look name not id
 
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
