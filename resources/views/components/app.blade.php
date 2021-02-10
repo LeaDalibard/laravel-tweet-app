@@ -8,7 +8,7 @@
                     </div>
                 @endif
                 <div class="lg:flex-1 lg:mx-10" style="max-width: 700px">
-                    @yield('content')
+                    {{ $slot }}
                 </div>
                 @if(auth()->check())
                     <div class="lg:w-1/6 bg-blue-100 rounded-3xl p-4">
