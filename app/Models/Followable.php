@@ -7,9 +7,11 @@ namespace App\Models;
 trait Followable
 {
 
-    public function following()
+    public function following(User $user)
     {
-        //
+        return $this->follows()
+            ->where('following_user_id', $user->id)
+            ->exists();
     }
 
     public function follows()
