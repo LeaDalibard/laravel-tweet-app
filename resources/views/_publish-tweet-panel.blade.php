@@ -4,7 +4,7 @@
         @csrf
         <textarea
             name="body"
-            class="w-full"
+            class="w-full text-grey-darkest bg-transparent "
             placeholder="What's up?"
         ></textarea>
 
