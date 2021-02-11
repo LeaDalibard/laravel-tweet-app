@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
         'App\Http\Controllers\ProfilesController@update')
         ->middleware('can:edit,user');
 
-    Route::get('/explore','App\Http\Controllers\ExploreController@index');
+    Route::get('/explore','App\Http\Controllers\ExploreController');
 });
 // ensure that user is auth and if not redirect to login page
 
