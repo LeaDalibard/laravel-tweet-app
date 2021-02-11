@@ -48,12 +48,18 @@ class User extends Authenticatable
         return asset($value);
 
     }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
     public function timeline()
     {
-        $friends=$this->follows()->pluck('id');
+        $friends = $this->follows()->pluck('id');
 
-        return Tweet::whereIn('user_id',$friends)
-            ->orWhere('user_id',$this->id)
+        return Tweet::whereIn('user_id', $friends)
+            ->orWhere('user_id', $this->id)
             ->latest()->get();
     }
 
@@ -67,9 +73,9 @@ class User extends Authenticatable
     //        return 'name';
     //    }
 
-    public function path($append='')
+    public function path($append = '')
     {
-      $path= route('profile', $this->username);
-      return $append ? "{$path}/{$append}" : $path;
+        $path = route('profile', $this->username);
+        return $append ? "{$path}/{$append}" : $path;
     }
 }
