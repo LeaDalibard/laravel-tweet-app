@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,12 +30,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profiles/{user:username}',
         'App\Http\Controllers\ProfilesController@update')
         ->middleware('can:edit,user');
+
+    Route::get('/explore','App\Http\Controllers\ExploreController@index');
 });
 // ensure that user is auth and if not redirect to login page
 
 Route::get('/profiles/{user:username}', 'App\Http\Controllers\ProfilesController@show')
     ->name('profile');
 //{user:name}, here we specify the name of the attribute, we want to look name not id
+
+
 
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
