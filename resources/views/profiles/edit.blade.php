@@ -56,7 +56,6 @@
                     class="border border-gray-400 p-2 w-full"
                     name="avatar"
                     id="avatar"
-                    required
                 >
                 <img src="{{$user->avatar}}"
                      alt="your avatar"

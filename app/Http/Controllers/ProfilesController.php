@@ -27,7 +27,7 @@ class ProfilesController extends Controller
     public function update(User $user)
     {
 
-        $attributes=request()->validate([
+        $attributes = request()->validate([
             'username' => [
                 'string',
                 'required',
@@ -38,8 +38,7 @@ class ProfilesController extends Controller
                 'string',
                 'required',
                 'max:255'],
-            'avatar'=>[
-                'required',
+            'avatar' => [
                 'file'
             ],
 
@@ -57,7 +56,11 @@ class ProfilesController extends Controller
                 'confirmed']
         ]);
 
-        $attributes['avatar']=request('avatar')->store('avatars');
+        if (request('avatar')) {
+            $attributes['avatar'] = request('avatar')->store('avatars');
+
+        }
+
         //store return a path where the image is located and that's what we put in the DB
         $user->update($attributes);
 

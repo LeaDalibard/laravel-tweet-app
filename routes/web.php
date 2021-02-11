@@ -17,18 +17,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->group(function(){
-    Route::get('/tweets', 'App\Http\Controllers\TweetsController@index' )->name('home');
-    Route::post('/tweets', 'App\Http\Controllers\TweetsController@store' );
+Route::middleware('auth')->group(function () {
+    Route::get('/tweets', 'App\Http\Controllers\TweetsController@index')->name('home');
+    Route::post('/tweets', 'App\Http\Controllers\TweetsController@store');
 
     Route::post('/profiles/{user:username}/follow', 'App\Http\Controllers\FollowsController@store');
-    Route::get('/profiles/{user:username}/edit', 'App\Http\Controllers\ProfilesController@edit')->middleware('can:edit,user');
+    Route::get('/profiles/{user:username}/edit',
+        'App\Http\Controllers\ProfilesController@edit')
+        ->middleware('can:edit,user');
 
-    Route::patch('/profiles/{user:username}', 'App\Http\Controllers\ProfilesController@update');
+    Route::patch('/profiles/{user:username}',
+        'App\Http\Controllers\ProfilesController@update')
+        ->middleware('can:edit,user');
 });
 // ensure that user is auth and if not redirect to login page
 
-Route::get('/profiles/{user:username}', 'App\Http\Controllers\ProfilesController@show')->name('profile');
+Route::get('/profiles/{user:username}', 'App\Http\Controllers\ProfilesController@show')
+    ->name('profile');
 //{user:name}, here we specify the name of the attribute, we want to look name not id
 
 Auth::routes();
