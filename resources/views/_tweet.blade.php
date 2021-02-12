@@ -30,7 +30,9 @@
                                 id="Fill-97"></path>
                         </g>
                     </g>
-                    <span class="text-xs text-gray-500">10</span>
+                    <span class="text-xs text-gray-500">
+                        {{$tweet->likes?:0}}
+                    </span>
             </div>
             <div class="flex items-center">
                 <svg viewBox="0 0 20 20" class="text-gray-500 mr-1 w-3">
@@ -42,7 +44,9 @@
                         </g>
                     </g>
                 </svg>
-                <span class="text-xs text-gray-500">10</span>
+                <span class="text-xs text-gray-500">
+                    {{$tweet->dislikes?:0}}
+                </span>
             </div>
 
 
