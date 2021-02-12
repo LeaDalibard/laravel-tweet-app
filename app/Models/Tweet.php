@@ -8,25 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Tweet extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    use Likable;
+
+    protected $guarded = [];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function like()
-    {
-        $this->likes()->updateOrCreate([
-            'user_id'=> auth()->id(),
-            ],[
-            'liked'=>true
-        ]);
-    }
 
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
-    }
 }
 
